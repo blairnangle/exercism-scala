@@ -1,9 +1,11 @@
 package helloworld
 
-import helloworld.HelloWorld
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
 
-class HelloWorldTest extends munit.FunSuite {
+class HelloWorldTest extends AnyFunSuite with Matchers {
+
   test("Say Hi!") {
-    assertEquals(HelloWorld.hello(), "Hello, World!")
+    HelloWorld.hello() should be("Hello, World!")
   }
 }
