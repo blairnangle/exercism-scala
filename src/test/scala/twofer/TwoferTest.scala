@@ -3,6 +3,7 @@ package twofer
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
+/** @version 1.2.0 */
 class TwoferTest extends AnyFunSuite with Matchers {
 
   test("no name given") {
