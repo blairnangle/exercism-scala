@@ -1,0 +1,41 @@
+package darts
+
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
+
+
+/** @version 1.0.0 */
+class DartsTest extends AnyFunSuite with Matchers {
+
+  test("A dart lands outside the target") {
+    Darts.score(15.3, 13.2) should be (0)
+  }
+
+  test("A dart lands just in the border of the target") {
+    Darts.score(10, 0) should be (1)
+  }
+
+  test("A dart lands at (10,10) - outside the target") {
+    Darts.score(10, 10) should be(0)
+  }
+
+  test("A dart lands in the middle circle") {
+    Darts.score(3, 3.7) should be (5)
+  }
+
+  test("A dart lands right in the border between outside and middle circles") {
+    Darts.score(0, 5) should be (5)
+  }
+
+  test("A dart lands at (5,5) - outside the middle circle") {
+    Darts.score(5, 5) should be (1)
+  }
+
+  test("A dart lands in the inner circle") {
+    Darts.score(0, 0) should be (10)
+  }
+
+  test("A dart lands at (1,1) - outside the inner circle") {
+    Darts.score(1, 1) should be(5)
+  }
+}
