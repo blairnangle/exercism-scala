@@ -3,7 +3,7 @@ package highscores
 object HighScores {
 
   def latest(scores: List[Int]): Int = {
-    scores.reverse.head
+    scores.takeRight(1).head
   }
 
   def personalBest(scores: List[Int]): Int = {
