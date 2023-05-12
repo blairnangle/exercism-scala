@@ -3,7 +3,6 @@ package bob
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
-
 /** @version 1.4.0 */
 class BobTest extends AnyFunSuite with Matchers {
 
@@ -21,7 +20,8 @@ class BobTest extends AnyFunSuite with Matchers {
 
   test("asking a question") {
     Bob.response("Does this cryogenic chamber make me look fat?") should be(
-      "Sure.")
+      "Sure."
+    )
   }
 
   test("asking a numeric question") {
@@ -38,12 +38,14 @@ class BobTest extends AnyFunSuite with Matchers {
 
   test("using acronyms in regular speech") {
     Bob.response("It's OK if you don't want to go to the DMV.") should be(
-      "Whatever.")
+      "Whatever."
+    )
   }
 
   test("forceful question") {
     Bob.response("WHAT THE HELL WERE YOU THINKING?") should be(
-      "Calm down, I know what I'm doing!")
+      "Calm down, I know what I'm doing!"
+    )
   }
 
   test("shouting numbers") {
@@ -60,7 +62,8 @@ class BobTest extends AnyFunSuite with Matchers {
 
   test("shouting with special characters") {
     Bob.response("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!") should be(
-      "Whoa, chill out!")
+      "Whoa, chill out!"
+    )
   }
 
   test("shouting with no exclamation mark") {
@@ -103,7 +106,8 @@ No.""") should be("Whatever.")
 
   test("ending with whitespace") {
     Bob.response("Okay if like my  spacebar  quite a bit?   ") should be(
-      "Sure.")
+      "Sure."
+    )
   }
 
   test("other whitespace") {
@@ -113,6 +117,7 @@ No.""") should be("Whatever.")
 
   test("non-question ending with whitespace") {
     Bob.response("This is a statement ending with whitespace      ") should be(
-      "Whatever.")
+      "Whatever."
+    )
   }
 }
