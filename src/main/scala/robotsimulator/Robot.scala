@@ -1,40 +1,20 @@
 package robotsimulator
 
-import robotsimulator.Bearing.Bearing
-
 object Bearing extends Enumeration {
-  type Bearing = Value
-  val North, East, South, West = Value
+  val North: Bearing.Value = Value(0)
+  val East: Bearing.Value = Value(1)
+  val South: Bearing.Value = Value(2)
+  val West: Bearing.Value = Value(3)
 }
 
-case class Robot(bearing: Bearing, coordinates: (Int, Int)) {
+case class Robot(bearing: Bearing.Value, coordinates: (Int, Int)) {
 
   def turnRight: Robot = {
-    bearing match {
-      case bearing if bearing == Bearing.North =>
-        Robot(Bearing.East, coordinates)
-      case bearing if bearing == Bearing.East =>
-        Robot(Bearing.South, coordinates)
-      case bearing if bearing == Bearing.South =>
-        Robot(Bearing.West, coordinates)
-      case bearing if bearing == Bearing.West =>
-        Robot(Bearing.North, coordinates)
-      case _ => Robot(bearing, coordinates)
-    }
+    Robot(Bearing((bearing.id + 1) % 4), coordinates)
   }
 
   def turnLeft: Robot = {
-    bearing match {
-      case bearing if bearing == Bearing.North =>
-        Robot(Bearing.West, coordinates)
-      case bearing if bearing == Bearing.West =>
-        Robot(Bearing.South, coordinates)
-      case bearing if bearing == Bearing.South =>
-        Robot(Bearing.East, coordinates)
-      case bearing if bearing == Bearing.East =>
-        Robot(Bearing.North, coordinates)
-      case _ => Robot(bearing, coordinates)
-    }
+    Robot(Bearing((4 + (bearing.id - 1)) % 4), coordinates)
   }
 
   def advance: Robot = {
